@@ -77,8 +77,8 @@ FinSathi is built with standard web technologies and runs smoothly on almost any
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/<your-username>/<your-repo-name>.git
-cd "financia tracker new/finsathi-app"
+git clone https://github.com/mittubose/finsathi.git
+cd "finsathi/finsathi-app"
 
 # 2. Install dependencies
 npm install
