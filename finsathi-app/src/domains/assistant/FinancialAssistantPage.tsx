@@ -13,6 +13,7 @@ import {
 import { useAppStore } from '../../shared/hooks/useAppStore';
 import { formatINR } from '../../shared/lib/currency';
 import { useToast } from '../../shared/ui/Toast';
+import { FinSathiLogo } from '../../shared/ui/FinSathiLogo';
 import './FinancialAssistantPage.css';
 
 interface Message {
@@ -332,9 +333,7 @@ export function FinancialAssistantPage() {
       <div className="asst-header">
         <div className="asst-title-wrap">
           <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-            <span className="material-symbols-outlined" style={{ fontSize: '28px', color: 'var(--primary-container, #00ff41)' }}>
-              smart_toy
-            </span>
+            <FinSathiLogo size={28} glow />
             <h1 className="text-headline-md" style={{ margin: 0 }}>LOCAL_FINANCIAL_AI_ASSISTANT</h1>
           </div>
           <span className="text-label-mono color-muted">

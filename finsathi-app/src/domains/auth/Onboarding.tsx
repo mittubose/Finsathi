@@ -4,6 +4,7 @@ import { useProfileStore } from '../../shared/hooks/useProfileStore';
 import { getCurrentFY, getFYRange } from '../../shared/lib/dates';
 import { generateRecoveryKey, sha256 } from '../../shared/lib/security';
 import { useToast } from '../../shared/ui/Toast';
+import { FinSathiLogo } from '../../shared/ui/FinSathiLogo';
 import { useNavigate } from 'react-router-dom';
 import './Onboarding.css';
 
@@ -178,7 +179,10 @@ export function Onboarding({ onComplete }: { onComplete: () => void }) {
           {/* STEP 0: IDENTITY & EMAIL */}
           {step === 0 && (
             <div className="onboarding-step-content animate-in">
-              <div className="onboarding-logo">FINSATHI</div>
+              <div className="onboarding-logo" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '10px' }}>
+                <FinSathiLogo size={32} glow />
+                <span>FINSATHI</span>
+              </div>
               <h1 className="text-headline-md onboarding-title">MASTER_ADMIN_SETUP</h1>
               <p className="text-body color-muted onboarding-desc">
                 FinSathi runs locally on your private machine. Establish your Master Admin identity and emergency recovery email.

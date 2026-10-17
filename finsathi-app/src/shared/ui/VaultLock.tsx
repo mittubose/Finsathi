@@ -11,6 +11,7 @@ import {
   sha256
 } from '../lib/security';
 import './VaultLock.css';
+import { FinSathiLogo } from './FinSathiLogo';
 
 export function VaultLock() {
   const { 
@@ -223,8 +224,8 @@ export function VaultLock() {
   return (
     <div className="vault-overlay">
       <div className="vault-card glass-surface-elevated animate-in">
-        <div className="vault-icon-container">
-          <span className="material-symbols-outlined vault-main-icon">lock</span>
+        <div className="vault-icon-container" style={{ display: 'flex', justifyContent: 'center', marginBottom: '16px' }}>
+          <FinSathiLogo size={48} glow />
         </div>
         
         <h1 className="text-headline-md vault-title">VAULT_LOCKED</h1>

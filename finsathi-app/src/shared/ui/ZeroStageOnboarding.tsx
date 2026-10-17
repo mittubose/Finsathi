@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useProfileStore } from '../hooks/useProfileStore';
 import { useWidgetStore, type WorkflowPreset } from '../widgets/useWidgetStore';
 import { type WidgetType, WIDGET_REGISTRY } from '../widgets/widgetTypes';
+import { FinSathiLogo } from './FinSathiLogo';
 
 interface ZeroStageOnboardingProps {
   isOpen: boolean;
@@ -126,15 +127,7 @@ export function ZeroStageOnboarding({ isOpen, onClose }: ZeroStageOnboardingProp
         >
           <div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-              <span
-                style={{
-                  width: '8px',
-                  height: '8px',
-                  borderRadius: '50%',
-                  background: 'var(--primary-container, #00ff41)',
-                  boxShadow: '0 0 8px #00ff41',
-                }}
-              />
+              <FinSathiLogo size={20} glow />
               <span style={{ fontFamily: 'monospace', fontSize: '11px', color: 'var(--primary-container, #00ff41)', letterSpacing: '0.1em' }}>
                 ZERO-STAGE SETUP // PROFILE: {activeProfile.name.toUpperCase()}
               </span>

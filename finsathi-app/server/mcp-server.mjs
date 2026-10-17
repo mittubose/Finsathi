@@ -101,6 +101,16 @@ function checkIpRateLimit(ip) {
   return { allowed: true };
 }
 
+function safeTokenCompare(provided, expected) {
+  if (!provided || !expected || typeof provided !== 'string' || typeof expected !== 'string') {
+    return false;
+  }
+  const bufA = Buffer.from(provided, 'utf8');
+  const bufB = Buffer.from(expected, 'utf8');
+  if (bufA.length !== bufB.length) return false;
+  return crypto.timingSafeEqual(bufA, bufB);
+}
+
 function verifyAuthToken(req) {
   const tokenHeader = req.headers['x-finsathi-token'];
   const authHeader = req.headers['authorization'];
@@ -112,7 +122,7 @@ function verifyAuthToken(req) {
       providedToken = authHeader.trim();
     }
   }
-  return Boolean(providedToken && providedToken === SERVER_AUTH_TOKEN);
+  return safeTokenCompare(providedToken, SERVER_AUTH_TOKEN);
 }
 
 function getLanIps() {
@@ -128,16 +138,55 @@ function getLanIps() {
   return results;
 }
 
+function readJsonBody(req, res, callback) {
+  let body = '';
+  let size = 0;
+  const MAX_BYTES = 5 * 1024 * 1024; // 5 MB payload limit (prevents Memory Exhaustion DoS)
+  
+  req.on('data', chunk => {
+    size += chunk.length;
+    if (size > MAX_BYTES) {
+      res.writeHead(413, { 'Content-Type': 'application/json' });
+      res.end(JSON.stringify({ error: 'PAYLOAD_TOO_LARGE: Request exceeds 5MB limit.' }));
+      req.destroy();
+    } else {
+      body += chunk;
+    }
+  });
+
+  req.on('end', () => {
+    if (size > MAX_BYTES) return;
+    try {
+      const parsed = body.trim() ? JSON.parse(body) : {};
+      callback(null, parsed);
+    } catch (err) {
+      res.writeHead(400, { 'Content-Type': 'application/json' });
+      res.end(JSON.stringify({ error: 'Malformed JSON payload: ' + err.message }));
+    }
+  });
+}
+
 function serveStatic(req, res, url) {
   if (!fs.existsSync(DIST_DIR)) return false;
-  let filePath = path.join(DIST_DIR, url.pathname);
+
+  // Path Traversal Mitigation: Strip leading traversal segments and enforce canonical confinement to DIST_DIR
+  const safePath = path.normalize(url.pathname).replace(/^(\.\.[\/\\])+/, '');
+  let filePath = path.resolve(DIST_DIR, '.' + safePath);
+  const resolvedDist = path.resolve(DIST_DIR);
+  
+  if (!filePath.startsWith(resolvedDist)) {
+    res.writeHead(403, { 'Content-Type': 'application/json' });
+    res.end(JSON.stringify({ error: 'FORBIDDEN: Path traversal detected.' }));
+    return true;
+  }
+
   if (fs.existsSync(filePath) && fs.statSync(filePath).isDirectory()) {
     filePath = path.join(filePath, 'index.html');
   }
   if (!fs.existsSync(filePath)) {
     filePath = path.join(DIST_DIR, 'index.html');
   }
-  if (!fs.existsSync(filePath)) return false;
+  if (!fs.existsSync(filePath) || !filePath.startsWith(resolvedDist)) return false;
 
   const ext = path.extname(filePath).toLowerCase();
   const mimeTypes = {
@@ -784,21 +833,14 @@ const server = http.createServer((req, res) => {
 
   // Token Verification endpoint
   if (url.pathname === '/api/auth/verify' && req.method === 'POST') {
-    let body = '';
-    req.on('data', chunk => body += chunk);
-    req.on('end', () => {
-      try {
-        const { token } = JSON.parse(body);
-        if (token && token === SERVER_AUTH_TOKEN) {
-          res.writeHead(200, { 'Content-Type': 'application/json' });
-          res.end(JSON.stringify({ valid: true, message: 'Authentication successful.' }));
-        } else {
-          res.writeHead(401, { 'Content-Type': 'application/json' });
-          res.end(JSON.stringify({ valid: false, error: 'Invalid authentication token.' }));
-        }
-      } catch (err) {
-        res.writeHead(400, { 'Content-Type': 'application/json' });
-        res.end(JSON.stringify({ error: 'Malformed request body' }));
+    readJsonBody(req, res, (err, payload) => {
+      const { token } = payload;
+      if (safeTokenCompare(token, SERVER_AUTH_TOKEN)) {
+        res.writeHead(200, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify({ valid: true, message: 'Authentication successful.' }));
+      } else {
+        res.writeHead(401, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify({ valid: false, error: 'Invalid authentication token.' }));
       }
     });
     return;
@@ -825,11 +867,9 @@ const server = http.createServer((req, res) => {
 
   // MCP Tool Execution
   if (url.pathname === '/mcp/call' && req.method === 'POST') {
-    let body = '';
-    req.on('data', chunk => body += chunk);
-    req.on('end', () => {
+    readJsonBody(req, res, (err, payload) => {
       try {
-        const { name, arguments: params } = JSON.parse(body);
+        const { name, arguments: params } = payload;
         const result = handleToolCall(name, params || {});
         res.writeHead(200, { 'Content-Type': 'application/json' });
         res.end(JSON.stringify(result));
@@ -843,11 +883,8 @@ const server = http.createServer((req, res) => {
 
   // Dual-mode Sync endpoint from web client with conflict-free merge
   if (url.pathname === '/api/sync' && req.method === 'POST') {
-    let body = '';
-    req.on('data', chunk => body += chunk);
-    req.on('end', () => {
+    readJsonBody(req, res, (err, payload) => {
       try {
-        const payload = JSON.parse(body);
         const { profileId, payload: profileContent } = payload;
         if (!profileId) throw new Error('Missing profileId');
         
@@ -889,18 +926,15 @@ const server = http.createServer((req, res) => {
     return;
   }
 
-
   // Error Logging endpoint
   if (url.pathname === '/api/logs/error' && req.method === 'POST') {
-    let body = '';
-    req.on('data', chunk => body += chunk);
-    req.on('end', () => {
+    readJsonBody(req, res, (err, payload) => {
       try {
-        const errorEntry = JSON.parse(body);
+        const errorEntry = payload;
         const logFile = path.join(DATA_DIR, 'errors.jsonl');
         fs.appendFileSync(logFile, JSON.stringify(errorEntry) + '\n', 'utf8');
         res.writeHead(200, { 'Content-Type': 'application/json' });
-        res.end(JSON.stringify({ success: true, id: errorEntry.id }));
+        res.end(JSON.stringify({ success: true, id: errorEntry?.id }));
       } catch (err) {
         res.writeHead(400, { 'Content-Type': 'application/json' });
         res.end(JSON.stringify({ error: err.message }));

@@ -6,6 +6,7 @@ import { useProfileStore } from '../hooks/useProfileStore';
 import { useCommandStore } from '../hooks/useCommandStore';
 import { getCurrentFY } from '../lib/dates';
 import { APP_VERSION } from '../lib/versioning';
+import { FinSathiLogo } from './FinSathiLogo';
 import './Sidebar.css';
 
 interface NavItem {
@@ -241,7 +242,10 @@ export function Sidebar() {
       <nav className="sidebar">
         <div className="sidebar-brand">
           <div className="sidebar-brand-row">
-            <div className="sidebar-logo">FINSATHI</div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <FinSathiLogo size={22} glow />
+              <div className="sidebar-logo">FINSATHI</div>
+            </div>
             <div className="sidebar-fy-selector">
               <span className="material-symbols-outlined" style={{ fontSize: '12px', color: 'rgba(255,255,255,0.3)' }}>
                 calendar_month
@@ -378,6 +382,7 @@ export function Sidebar() {
           <span className="material-symbols-outlined icon-sm" style={{ color: 'var(--primary-container)' }}>
             menu
           </span>
+          <FinSathiLogo size={20} glow />
           <span className="sidebar-logo">FINSATHI</span>
         </div>
 
@@ -436,7 +441,10 @@ export function Sidebar() {
         <div className="mobile-drawer-overlay" onClick={closeMobileDrawer}>
           <div className="mobile-drawer-sheet" onClick={(e) => e.stopPropagation()}>
             <div className="mobile-drawer-header">
-              <div className="mobile-drawer-title">FINSATHI VAULT MENU</div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <FinSathiLogo size={20} glow />
+                <div className="mobile-drawer-title">FINSATHI VAULT MENU</div>
+              </div>
               <button className="mobile-drawer-close" onClick={closeMobileDrawer}>
                 <span className="material-symbols-outlined">close</span>
               </button>

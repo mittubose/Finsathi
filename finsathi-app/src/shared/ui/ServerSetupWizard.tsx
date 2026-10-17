@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useAppStore } from '../hooks/useAppStore';
 import { useToast } from './Toast';
 import { generateQrSvg } from '../lib/qrCode';
+import { FinSathiLogo } from './FinSathiLogo';
 import './Modal.css';
 
 interface ServerSetupWizardProps {
@@ -311,10 +312,8 @@ export function ServerSetupWizard({ isOpen, onClose }: ServerSetupWizardProps) {
             background: 'rgba(0, 0, 0, 0.3)',
           }}
         >
-          <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-            <span className="material-symbols-outlined color-primary" style={{ fontSize: '24px' }}>
-              dns
-            </span>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+            <FinSathiLogo size={28} glow />
             <div>
               <h2 className="text-headline-sm" style={{ margin: 0, letterSpacing: '0.05em' }}>
                 SERVER_DIAGNOSTICS & SETUP
