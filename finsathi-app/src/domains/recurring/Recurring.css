@@ -1,0 +1,407 @@
+/* === Recurring Rules Page === */
+
+.recurring-page {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+}
+
+.recurring-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.recurring-new-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.5);
+  font-family: var(--font-headline);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  transition: all var(--duration-normal) var(--ease-out-quart);
+}
+
+.recurring-new-btn:hover,
+.recurring-new-btn.active {
+  border-color: var(--primary-container);
+  color: var(--primary-container);
+  background: rgba(0, 255, 65, 0.06);
+}
+
+/* Overdue Banner */
+.recurring-overdue-banner {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-color: rgba(255, 180, 171, 0.2) !important;
+  background: rgba(255, 180, 171, 0.04) !important;
+  flex-wrap: wrap;
+}
+
+.recurring-overdue-tag {
+  padding: 2px 8px;
+  border: 1px solid rgba(255, 180, 171, 0.2);
+  color: var(--error);
+  font-family: var(--font-headline);
+  font-size: 9px;
+  letter-spacing: 0.08em;
+}
+
+/* Form */
+.recurring-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.recurring-form-body {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 10px;
+  padding: 12px;
+}
+
+.recurring-field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.recurring-input,
+.recurring-select {
+  padding: 6px 8px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(0, 0, 0, 0.3);
+  font-family: var(--font-headline);
+  font-size: 12px;
+  letter-spacing: 0.03em;
+  color: var(--on-surface);
+  transition: border-color var(--duration-normal);
+}
+
+.recurring-input:focus,
+.recurring-select:focus {
+  border-color: var(--primary-container);
+  outline: none;
+}
+
+.recurring-input::placeholder {
+  color: rgba(255, 255, 255, 0.2);
+}
+
+.recurring-input[type="date"] {
+  color-scheme: dark;
+}
+
+.recurring-select {
+  appearance: none;
+  cursor: pointer;
+}
+
+/* Type Chips */
+.recurring-type-chips {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-top: 2px;
+}
+
+.recurring-type-chip {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 10px;
+  font-family: var(--font-headline);
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.4);
+  transition: all var(--duration-fast);
+  cursor: pointer;
+}
+
+.recurring-type-chip--positive.active {
+  border-color: var(--primary-container);
+  color: var(--primary-container);
+  background: rgba(0, 255, 65, 0.06);
+}
+
+.recurring-type-chip--warning.active {
+  border-color: var(--secondary-container);
+  color: var(--secondary-container);
+  background: rgba(255, 178, 17, 0.06);
+}
+
+.recurring-type-chip--info.active {
+  border-color: rgba(100, 181, 246, 0.5);
+  color: rgb(100, 181, 246);
+  background: rgba(100, 181, 246, 0.06);
+}
+
+.recurring-type-chip--negative.active {
+  border-color: rgba(255, 180, 171, 0.5);
+  color: var(--error);
+  background: rgba(255, 180, 171, 0.06);
+}
+
+.recurring-type-chip--neutral.active {
+  border-color: rgba(255, 255, 255, 0.3);
+  color: var(--on-surface);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.recurring-type-chip:hover:not(.active) {
+  border-color: rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* Form Actions */
+.recurring-form-actions {
+  display: flex;
+  gap: 8px;
+  padding: 8px 12px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.recurring-save-btn {
+  padding: 6px 16px;
+  background: var(--on-surface);
+  color: var(--surface);
+  font-family: var(--font-headline);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  font-weight: 600;
+  border: 1px solid transparent;
+  transition: all var(--duration-normal) var(--ease-out-quart);
+}
+
+.recurring-save-btn:hover:not(:disabled) {
+  background: var(--primary-container);
+  color: var(--on-primary-container);
+}
+
+.recurring-save-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.recurring-cancel-btn {
+  padding: 6px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.5);
+  font-family: var(--font-headline);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  transition: all var(--duration-normal) var(--ease-out-quart);
+}
+
+.recurring-cancel-btn:hover {
+  border-color: rgba(255, 255, 255, 0.3);
+  color: var(--on-surface);
+}
+
+/* Filter Tabs */
+.recurring-tabs {
+  display: flex;
+  gap: 4px;
+  overflow-x: auto;
+  padding-bottom: 2px;
+}
+
+.recurring-tab {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 10px;
+  font-family: var(--font-headline);
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  color: rgba(255, 255, 255, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  white-space: nowrap;
+  transition: all var(--duration-fast);
+}
+
+.recurring-tab.active {
+  color: var(--primary-container);
+  border-color: rgba(0, 255, 65, 0.3);
+  background: rgba(0, 255, 65, 0.06);
+}
+
+.recurring-tab:hover:not(.active) {
+  border-color: rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.recurring-tab-count {
+  background: rgba(255, 255, 255, 0.08);
+  padding: 0px 4px;
+  font-size: 8px;
+}
+
+/* Rules List */
+.recurring-list {
+  display: flex;
+  flex-direction: column;
+  min-height: 200px;
+}
+
+.recurring-rule-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  transition: background var(--duration-fast);
+}
+
+.recurring-rule-row.overdue {
+  background: rgba(255, 180, 171, 0.03);
+  border-left: 2px solid rgba(255, 180, 171, 0.3);
+}
+
+.recurring-rule-icon {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(0, 0, 0, 0.4);
+  flex-shrink: 0;
+}
+
+.recurring-rule-icon--positive { border-color: rgba(0, 255, 65, 0.15); }
+.recurring-rule-icon--warning { border-color: rgba(255, 178, 17, 0.15); }
+.recurring-rule-icon--info { border-color: rgba(100, 181, 246, 0.15); }
+.recurring-rule-icon--negative { border-color: rgba(255, 180, 171, 0.15); }
+
+.recurring-rule-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.recurring-rule-meta {
+  flex-shrink: 0;
+  text-align: right;
+}
+
+/* Status Badge */
+.recurring-status-badge {
+  font-family: var(--font-headline);
+  font-size: 8px;
+  letter-spacing: 0.08em;
+  padding: 1px 5px;
+  border: 1px solid;
+}
+
+.recurring-status-badge--positive {
+  color: var(--primary-container);
+  border-color: rgba(0, 255, 65, 0.3);
+}
+.recurring-status-badge--negative {
+  color: var(--error);
+  border-color: rgba(255, 180, 171, 0.3);
+}
+.recurring-status-badge--neutral {
+  color: rgba(255, 255, 255, 0.4);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+.recurring-status-badge--muted {
+  color: rgba(255, 255, 255, 0.25);
+  border-color: rgba(255, 255, 255, 0.06);
+}
+
+/* Action buttons */
+.recurring-rule-actions {
+  display: flex;
+  gap: 4px;
+  flex-shrink: 0;
+  opacity: 0;
+  transition: opacity var(--duration-fast);
+}
+
+.recurring-rule-row:hover .recurring-rule-actions {
+  opacity: 1;
+}
+
+.recurring-action-btn {
+  color: rgba(255, 255, 255, 0.3);
+  padding: 4px;
+  transition: color var(--duration-fast);
+  display: flex;
+  align-items: center;
+}
+
+.recurring-action-btn--trigger:hover { color: var(--primary-container); }
+.recurring-link-badge {
+  background: rgba(0, 255, 65, 0.1);
+  color: var(--primary-container);
+  border: 1px solid rgba(0, 255, 65, 0.2);
+  padding: 2px 6px;
+  font-size: 8px;
+  font-family: var(--font-headline);
+  margin-left: 8px;
+  letter-spacing: 0.1em;
+  vertical-align: middle;
+}
+
+.recurring-checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  padding: 8px 12px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--outline-variant);
+  width: fit-content;
+}
+
+.recurring-checkbox-label input {
+  accent-color: var(--primary-container);
+}
+
+.recurring-action-btn:hover {
+  background: rgba(255,255,255,0.1);
+  color: var(--on-surface);
+}
+
+.recurring-action-btn--delete:hover {
+  background: rgba(255, 0, 0, 0.1);
+  color: var(--error);
+}
+.recurring-action-btn:hover { color: rgba(255, 255, 255, 0.8); }
+
+/* Empty State */
+.recurring-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 16px;
+  text-align: center;
+}
+
+/* Trigger Modal Overlay */
+.recurring-trigger-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 200;
+  backdrop-filter: blur(4px);
+}
+
+.recurring-trigger-modal {
+  width: 320px;
+  display: flex;
+  flex-direction: column;
+}

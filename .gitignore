@@ -1,0 +1,73 @@
+# ==============================================================================
+# FinSathi & Assistant Hub Git Ignore
+# Protects against leaking personal data, credentials, and build artifacts
+# ==============================================================================
+
+# Operating System & Environment
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# Private User Data & Backups (NEVER COMMIT)
+private_user_data_backup.tar.gz
+*.tar.gz
+*.zip
+*.7z
+*.rar
+ref/
+doc_content.txt
+*.xlsx
+*.xls
+*.csv
+*.pdf
+
+# Environment & Secret Files (API Keys & Credentials)
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.cert
+*.crt
+id_rsa*
+id_ed25519*
+**/server/data/
+**/server_auth.json
+
+# Dependencies & Build Artifacts
+node_modules/
+**/node_modules/
+dist/
+**/dist/
+dist-ssr/
+build/
+.cache/
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+*.log
+
+# Docker Volumes & Runtime Data
+open-webui_data/
+n8n_data/
+memos_data/
+*.sqlite
+*.sqlite-journal
+*.db
+
+# IDE & Editor Settings
+.vscode/
+!.vscode/extensions.json
+.idea/
+*.swp
+*.swo
+*.sublime-*
+
+# Agent metadata and local runtime states
+.agents/
+skills-lock.json

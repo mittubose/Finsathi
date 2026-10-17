@@ -1,0 +1,312 @@
+/* === Ledger Hub: Impeccable Layout & Distill === */
+.ledger-hub {
+  padding: 40px;
+  max-width: 1400px;
+  margin-left: 0;
+}
+
+/* Nav: Segmented Terminal Navigation */
+.terminal-nav {
+  display: flex;
+  gap: 2px;
+  margin-bottom: 40px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 2px;
+  width: fit-content;
+}
+
+.nav-item {
+  position: relative;
+  padding: 8px 24px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  color: rgba(255, 255, 255, 0.4);
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.nav-item.active {
+  background: rgba(0, 255, 65, 0.08);
+  color: var(--primary-container);
+}
+
+.nav-indicator {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--primary-container);
+  transform: scaleX(0);
+  transition: transform 0.2s;
+}
+
+.nav-item.active .nav-indicator {
+  transform: scaleX(1);
+}
+
+/* Ledger Component */
+.transaction-ledger {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.ledger-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 24px;
+}
+
+.status-line {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.pulse-dot {
+  width: 6px;
+  height: 6px;
+  background: var(--primary-container);
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(1.2); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+.terminal-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  background: none;
+  border: 1px solid var(--outline-variant);
+  color: var(--on-surface-variant);
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.terminal-btn.active {
+  background: var(--primary-container);
+  color: #000;
+  border-color: var(--primary-container);
+}
+
+/* Command Bar (Distilled Form) */
+.terminal-command-bar {
+  display: flex;
+  align-items: stretch;
+  background: rgba(0,0,0,0.4);
+  border: 1px solid var(--primary-container);
+  margin-bottom: 24px;
+  box-shadow: 0 0 30px rgba(0,255,65,0.05);
+}
+
+.cmd-prefix {
+  background: var(--primary-container);
+  color: #000;
+  padding: 12px 16px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+}
+
+.cmd-grid {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr 120px 140px;
+  gap: 1px;
+  background: var(--outline-variant);
+}
+
+.cmd-input-group {
+  display: flex;
+  flex-direction: column;
+  background: #000;
+  padding: 4px 12px;
+}
+
+.cmd-input-group label {
+  font-size: 8px;
+  color: var(--primary-container);
+  font-family: 'Space Grotesk', sans-serif;
+  margin-bottom: 2px;
+}
+
+.cmd-input-group input, 
+.cmd-input-group select {
+  background: none;
+  border: none;
+  color: #fff;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  padding: 4px 0;
+  outline: none;
+}
+
+.cmd-execute {
+  background: none;
+  color: var(--primary-container);
+  border: none;
+  border-left: 1px solid var(--outline-variant);
+  padding: 0 24px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.cmd-execute:hover {
+  background: var(--primary-container);
+  color: #000;
+}
+
+/* Tools & Grid */
+.ledger-tools {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 16px;
+  background: rgba(255,255,255,0.02);
+}
+
+.filter-segment {
+  display: flex;
+  gap: 2px;
+  background: rgba(255,255,255,0.05);
+  padding: 2px;
+}
+
+.segment-btn {
+  padding: 4px 12px;
+  background: none;
+  border: none;
+  color: rgba(255,255,255,0.4);
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 10px;
+  cursor: pointer;
+}
+
+.segment-btn.active {
+  background: rgba(255,255,255,0.1);
+  color: #fff;
+}
+
+.tool-icon-btn {
+  background: none;
+  border: 1px solid var(--outline-variant);
+  color: var(--on-surface-variant);
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+/* Ledger Table: Rhythmic Grid */
+.ledger-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.ledger-grid-header, .ledger-row {
+  display: grid;
+  grid-template-columns: 40px 40px 1fr 140px 140px 60px;
+  gap: 16px;
+  padding: 12px 24px;
+  align-items: center;
+}
+
+.ledger-grid-header {
+  background: rgba(255,255,255,0.03);
+  border-bottom: 1px solid var(--outline-variant);
+}
+
+.ledger-row {
+  border-bottom: 1px solid rgba(255,255,255,0.02);
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+.ledger-row:hover {
+  background: rgba(255,255,255,0.04);
+}
+
+.ledger-row.selected {
+  background: rgba(0, 255, 65, 0.05);
+  border-left: 2px solid var(--primary-container);
+}
+
+.row-delete {
+  background: none;
+  border: none;
+  color: var(--on-surface-variant);
+  opacity: 0.1;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+.ledger-row:hover .row-delete {
+  opacity: 0.6;
+}
+
+.row-delete:hover {
+  color: var(--error);
+  opacity: 1;
+}
+
+/* Floating Action Bar: Distilled Utility */
+.floating-action-bar {
+  position: fixed;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  background: #000;
+  border: 1px solid var(--primary-container);
+  padding: 8px 16px 8px 24px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.8);
+  z-index: 1000;
+}
+
+.bar-btn {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  color: #fff;
+  padding: 6px 16px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.bar-btn.danger {
+  background: var(--primary-container);
+  color: #000;
+  border-color: var(--primary-container);
+}
+
+.truncate {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

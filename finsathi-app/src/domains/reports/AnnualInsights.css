@@ -1,0 +1,113 @@
+.insights-page {
+  padding: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.insights-header {
+  margin-bottom: 40px;
+  border-left: 2px solid var(--primary-container);
+  padding-left: 24px;
+}
+
+.insights-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 24px;
+  margin-bottom: 40px;
+}
+
+.insight-hero-card {
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.insight-hero-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+}
+
+.insight-hero-card.best::before { background: var(--primary-container); }
+.insight-hero-card.expensive::before { background: var(--error); }
+.insight-hero-card.avg::before { background: var(--secondary-container); }
+
+.insight-hero-icon {
+  width: 48px;
+  height: 48px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--outline-variant);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+}
+
+.insight-hero-card.best .insight-hero-icon { color: var(--primary-container); }
+.insight-hero-card.expensive .insight-hero-icon { color: var(--error); }
+.insight-hero-card.avg .insight-hero-icon { color: var(--secondary-container); }
+
+.insight-hero-main h2 {
+  font-size: 32px;
+  margin: 4px 0;
+}
+
+.insight-hero-val {
+  font-family: var(--font-headline);
+  font-size: 20px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.insight-hero-footer {
+  margin-top: auto;
+  padding-top: 16px;
+  border-top: 1px dashed var(--outline-variant);
+}
+
+.insights-timeline {
+  padding: 0;
+  overflow: hidden;
+}
+
+.timeline-row {
+  display: grid;
+  grid-template-columns: 100px 1fr 180px;
+  align-items: center;
+  gap: 32px;
+  padding: 16px 24px;
+}
+
+.timeline-month {
+  font-family: var(--font-headline);
+  font-size: 13px;
+}
+
+.timeline-bar-bg {
+  width: 100%;
+  height: 6px;
+  background: rgba(255,255,255,0.03);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.timeline-bar-fill {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.timeline-bar-fill.positive { background: var(--primary-container); }
+.timeline-bar-fill.negative { background: var(--error); }
+
+.timeline-value {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}

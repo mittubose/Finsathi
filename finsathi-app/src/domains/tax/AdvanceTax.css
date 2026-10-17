@@ -1,0 +1,169 @@
+/* === Advance Tax Calculator === */
+
+.adv-tax {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+}
+
+.adv-tax-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* Summary */
+.adv-tax-summary {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+}
+
+@media (min-width: 768px) {
+  .adv-tax-summary {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.adv-tax-stat {
+  display: flex;
+  flex-direction: column;
+}
+
+.adv-tax-stat-body {
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+/* Payments */
+.adv-tax-payments-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 8px;
+  padding: 12px;
+}
+
+.adv-tax-pay-field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.adv-tax-input {
+  padding: 6px 8px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(0, 0, 0, 0.3);
+  font-family: var(--font-headline);
+  font-size: 12px;
+  letter-spacing: 0.03em;
+  color: var(--on-surface);
+  transition: border-color var(--duration-normal) var(--ease-out-quart);
+}
+
+.adv-tax-input:focus {
+  border-color: var(--primary-container);
+  outline: none;
+}
+
+.adv-tax-input::placeholder {
+  color: rgba(255, 255, 255, 0.2);
+}
+
+.adv-tax-input::-webkit-outer-spin-button,
+.adv-tax-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+.adv-tax-input[type='number'] {
+  -moz-appearance: textfield;
+}
+
+/* Timeline Table */
+.adv-tax-timeline {
+  display: flex;
+  flex-direction: column;
+}
+
+.adv-tax-table-header {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .adv-tax-table-header {
+    display: grid;
+    grid-template-columns: 0.6fr 0.8fr 0.5fr 1fr 1fr 1fr 0.8fr 0.7fr;
+    gap: 8px;
+    padding: 6px 12px;
+    font-family: var(--font-headline);
+    font-size: 8px;
+    letter-spacing: 0.12em;
+    color: rgba(255, 255, 255, 0.25);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  }
+}
+
+.adv-tax-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 10px 12px;
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .adv-tax-row {
+    display: grid;
+    grid-template-columns: 0.6fr 0.8fr 0.5fr 1fr 1fr 1fr 0.8fr 0.7fr;
+    gap: 8px;
+    flex-wrap: nowrap;
+  }
+}
+
+.adv-tax-row--overdue {
+  background: rgba(255, 180, 171, 0.04);
+}
+
+.adv-tax-cell {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+/* Badge */
+.adv-tax-badge {
+  font-family: var(--font-headline);
+  font-size: 8px;
+  letter-spacing: 0.12em;
+  padding: 2px 6px;
+  display: inline-block;
+  width: fit-content;
+}
+
+.adv-tax-badge--done {
+  color: var(--primary-container);
+  border: 1px solid rgba(0, 255, 65, 0.2);
+  background: rgba(0, 255, 65, 0.04);
+}
+
+.adv-tax-badge--overdue {
+  color: var(--error);
+  border: 1px solid rgba(255, 180, 171, 0.2);
+  background: rgba(255, 180, 171, 0.04);
+}
+
+.adv-tax-badge--pending {
+  color: rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Notes */
+.adv-tax-notes {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 8px 0;
+}

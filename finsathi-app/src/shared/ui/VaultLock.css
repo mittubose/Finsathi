@@ -1,0 +1,387 @@
+.vault-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: var(--surface);
+  background-image: radial-gradient(rgba(0, 230, 57, 0.05) 1px, transparent 1px);
+  background-size: 32px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.vault-card {
+  width: 100%;
+  max-width: 400px;
+  padding: 40px;
+  text-align: center;
+  border: 1px solid var(--outline-variant);
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.5);
+}
+
+.vault-icon-container {
+  width: 64px;
+  height: 64px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--outline-variant);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 24px;
+}
+
+.vault-main-icon {
+  font-size: 32px;
+  color: var(--primary-container);
+  font-variation-settings: 'FILL' 1, 'wght' 200;
+}
+
+.vault-title {
+  margin-bottom: 8px;
+  letter-spacing: 0.1em;
+}
+
+.vault-subtitle {
+  font-size: 12px;
+  margin-bottom: 32px;
+}
+
+.vault-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.vault-field {
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.vault-input {
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid var(--outline-variant);
+  padding: 12px 16px;
+  font-size: 18px;
+  letter-spacing: 0.2em;
+  color: var(--primary-container);
+  transition: all var(--duration-normal);
+}
+
+.vault-input:focus {
+  border-color: var(--primary-container);
+  background: rgba(0, 230, 57, 0.05);
+  box-shadow: 0 0 15px rgba(0, 230, 57, 0.1);
+}
+
+.vault-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.vault-btn-primary {
+  flex: 1;
+  background: var(--primary-container);
+  color: var(--on-primary-container);
+  padding: 14px;
+  font-family: var(--font-headline);
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all var(--duration-normal);
+}
+
+.vault-btn-primary:hover {
+  background: var(--primary-fixed);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(0, 230, 57, 0.3);
+}
+
+.vault-btn-biometric {
+  width: 54px;
+  height: 54px;
+  border: 1px solid var(--outline-variant);
+  background: rgba(255, 255, 255, 0.03);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--duration-normal);
+}
+
+.vault-btn-biometric:hover {
+  border-color: var(--primary-container);
+  color: var(--primary-container);
+  background: rgba(0, 230, 57, 0.05);
+}
+
+.vault-btn-biometric span {
+  font-variation-settings: 'FILL' 0, 'wght' 200;
+}
+
+.vault-footer {
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid var(--outline-variant);
+}
+
+@keyframes vault-shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+
+.vault-error {
+  animation: vault-shake 0.2s ease-in-out 2;
+}
+
+.vault-recovery-zone {
+  margin-top: 24px;
+  text-align: center;
+}
+
+.vault-recovery-trigger {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--primary-container);
+  opacity: 0.7;
+  transition: all 0.2s;
+  padding: 8px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.vault-recovery-trigger:hover {
+  opacity: 1;
+  text-decoration: underline;
+}
+
+/* Mode toggle */
+.vault-mode-toggle {
+  display: flex;
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid var(--outline-variant);
+  border-radius: 4px;
+  padding: 3px;
+  margin-bottom: 16px;
+  gap: 4px;
+}
+
+.vault-mode-btn {
+  flex: 1;
+  background: none;
+  border: none;
+  color: var(--on-surface-variant);
+  font-family: var(--font-headline);
+  font-size: 11px;
+  padding: 8px 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  transition: all 0.2s;
+}
+
+.vault-mode-btn.active {
+  background: rgba(0, 230, 57, 0.12);
+  color: var(--primary-container);
+  font-weight: 600;
+}
+
+/* Numeric PIN Keypad */
+.vault-keypad {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.vault-keypad-btn {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--outline-variant);
+  color: var(--on-surface);
+  font-family: var(--font-headline);
+  font-size: 20px;
+  font-weight: 500;
+  padding: 14px 0;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s ease;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.vault-keypad-btn:active {
+  background: var(--primary-container);
+  color: var(--on-primary-container);
+  transform: scale(0.96);
+}
+
+.vault-keypad-btn.action-key {
+  font-size: 14px;
+  color: var(--on-surface-variant);
+  background: rgba(255, 255, 255, 0.02);
+}
+
+/* Emergency Recovery Modal */
+.recovery-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+
+.recovery-modal-card {
+  width: 100%;
+  max-width: 480px;
+  background: #0a0e14;
+  border: 1px solid var(--outline-variant);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.8);
+  padding: 24px;
+  border-radius: 6px;
+  text-align: left;
+}
+
+.recovery-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--outline-variant);
+  padding-bottom: 12px;
+}
+
+.recovery-close-btn {
+  background: none;
+  border: none;
+  color: var(--on-surface-variant);
+  cursor: pointer;
+  padding: 4px;
+}
+
+.recovery-close-btn:hover {
+  color: var(--on-surface);
+}
+
+.recovery-tabs {
+  display: flex;
+  gap: 8px;
+  border-bottom: 1px solid var(--outline-variant);
+  margin-bottom: 16px;
+}
+
+.recovery-tab-btn {
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  color: var(--on-surface-variant);
+  font-family: var(--font-headline);
+  font-size: 11px;
+  padding: 8px 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s;
+}
+
+.recovery-tab-btn.active {
+  border-bottom-color: var(--primary-container);
+  color: var(--primary-container);
+  font-weight: 600;
+}
+
+.recovery-form {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.recovery-input {
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid var(--outline-variant);
+  padding: 10px 14px;
+  color: var(--primary-container);
+  font-family: var(--font-code, monospace);
+  font-size: 14px;
+  border-radius: 4px;
+  outline: none;
+}
+
+.recovery-input:focus {
+  border-color: var(--primary-container);
+  box-shadow: 0 0 10px rgba(0, 230, 57, 0.15);
+}
+
+.recovery-send-btn {
+  background: rgba(0, 230, 57, 0.15);
+  color: var(--primary-container);
+  border: 1px solid var(--primary-container);
+  font-family: var(--font-headline);
+  font-size: 11px;
+  padding: 0 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.recovery-send-btn:hover {
+  background: var(--primary-container);
+  color: #000;
+}
+
+.recovery-success-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(0, 230, 57, 0.1);
+  border: 1px solid var(--primary-container);
+  color: var(--primary-container);
+  padding: 10px 12px;
+  font-size: 12px;
+  border-radius: 4px;
+  margin-bottom: 12px;
+}
+
+.recovery-disaster-section {
+  margin-top: 24px;
+  border-top: 1px solid var(--outline-variant);
+  padding-top: 14px;
+}
+
+.disaster-reset-btn {
+  background: rgba(255, 60, 60, 0.15);
+  border: 1px solid rgba(255, 60, 60, 0.5);
+  color: #ff6b6b;
+  font-family: var(--font-headline);
+  font-size: 11px;
+  padding: 8px 14px;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.disaster-reset-btn:hover {
+  background: #ff4d4d;
+  color: #000;
+}
+

@@ -1,0 +1,323 @@
+/* === Settings Page === */
+
+.settings {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  max-width: 900px;
+}
+
+.settings-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+/* Settings Tabs */
+.settings-tabs-bar {
+  display: flex;
+  gap: 6px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  scrollbar-width: none;
+}
+
+.settings-tabs-bar::-webkit-scrollbar {
+  display: none;
+}
+
+.settings-tab-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 4px;
+  font-family: var(--font-mono, monospace);
+  font-size: 11px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.65);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.settings-tab-btn:hover {
+  background: rgba(255, 255, 255, 0.07);
+  color: #fff;
+}
+
+.settings-tab-btn.active {
+  background: rgba(0, 255, 65, 0.1);
+  border-color: var(--primary-container, #00ff41);
+  color: var(--primary-container, #00ff41);
+}
+
+.settings-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.settings-body {
+  display: flex;
+  flex-direction: column;
+}
+
+.settings-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  flex-wrap: wrap;
+}
+
+.settings-row:last-child {
+  border-bottom: none;
+}
+
+.settings-row--danger {
+  background: rgba(255, 180, 171, 0.02);
+}
+
+.settings-row-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+  flex: 1;
+}
+
+.settings-input {
+  padding: 6px 10px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(0, 0, 0, 0.3);
+  font-family: var(--font-headline);
+  font-size: 12px;
+  letter-spacing: 0.03em;
+  color: var(--on-surface);
+  width: 200px;
+  transition: border-color var(--duration-normal) var(--ease-out-quart);
+}
+
+.settings-input:focus {
+  border-color: var(--primary-container);
+  outline: none;
+}
+
+.settings-select {
+  padding: 6px 10px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(0, 0, 0, 0.3);
+  font-family: var(--font-headline);
+  font-size: 11px;
+  letter-spacing: 0.03em;
+  color: var(--on-surface);
+  appearance: none;
+  cursor: pointer;
+  width: 260px;
+  transition: border-color var(--duration-normal) var(--ease-out-quart);
+}
+
+.settings-select:focus {
+  border-color: var(--primary-container);
+  outline: none;
+}
+
+/* Regime Toggle */
+.settings-regime-toggle {
+  display: flex;
+  gap: 0;
+}
+
+.settings-regime-btn {
+  padding: 6px 12px;
+  font-family: var(--font-headline);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.4);
+  transition: all var(--duration-normal) var(--ease-out-quart);
+}
+
+.settings-regime-btn:not(:last-child) {
+  border-right: none;
+}
+
+.settings-regime-btn.active {
+  background: rgba(0, 255, 65, 0.1);
+  color: var(--primary-container);
+  border-color: rgba(0, 255, 65, 0.3);
+}
+
+/* Action Buttons */
+.settings-action-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.6);
+  font-family: var(--font-headline);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  transition: all var(--duration-normal) var(--ease-out-quart);
+}
+
+.settings-action-btn:hover {
+  border-color: var(--primary-container);
+  color: var(--primary-container);
+}
+
+.settings-action-btn--danger:hover {
+  border-color: var(--error);
+  color: var(--error);
+}
+
+/* Confirm */
+.settings-confirm {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.settings-confirm-yes {
+  padding: 6px 12px;
+  background: var(--on-surface);
+  color: var(--surface);
+  font-family: var(--font-headline);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  font-weight: 600;
+  transition: all var(--duration-normal) var(--ease-out-quart);
+}
+
+.settings-confirm-yes:hover {
+  background: var(--primary-container);
+  color: var(--on-primary-container);
+}
+
+.settings-confirm-yes--danger {
+  background: var(--error);
+  color: var(--on-error);
+}
+
+.settings-confirm-yes--danger:hover {
+  background: #ff6b6b;
+}
+
+.settings-confirm-no {
+  padding: 6px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.5);
+  font-family: var(--font-headline);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  transition: all var(--duration-normal) var(--ease-out-quart);
+}
+
+.settings-confirm-no:hover {
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Info */
+.settings-info-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.settings-info-row:last-child {
+  border-bottom: none;
+}
+
+/* === Profiles & Multi-Account === */
+.profiles-list-table {
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 14px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.active-profile-row {
+  background: rgba(0, 255, 65, 0.03);
+  border-left: 2px solid var(--primary-container, #00ff41);
+}
+
+.profile-row-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.profile-tag-badge {
+  font-family: var(--font-headline, monospace);
+  font-size: 9px;
+  background: rgba(255, 255, 255, 0.08);
+  padding: 1px 4px;
+  border-radius: 2px;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.profile-role-pill {
+  font-family: var(--font-headline, monospace);
+  font-size: 9px;
+  letter-spacing: 0.06em;
+  padding: 2px 6px;
+  border-radius: 2px;
+  font-weight: 600;
+}
+
+.profile-role-pill.admin {
+  background: rgba(0, 255, 65, 0.12);
+  color: var(--primary-container, #00ff41);
+  border: 1px solid rgba(0, 255, 65, 0.3);
+}
+
+.profile-role-pill.user {
+  background: rgba(255, 215, 155, 0.1);
+  color: #ffd79b;
+  border: 1px solid rgba(255, 215, 155, 0.25);
+}
+
+.profile-pan-tag {
+  font-family: var(--font-headline, monospace);
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.profile-row-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.add-profile-box {
+  padding: 14px;
+  background: rgba(0, 0, 0, 0.2);
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.add-profile-inputs {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+

@@ -1,0 +1,88 @@
+/* === Tabs === */
+.vault-tabs {
+  display: flex;
+  flex-shrink: 0;
+}
+
+.vault-tabs--line {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  gap: 0;
+}
+
+.vault-tabs--pill {
+  gap: 4px;
+  padding: 3px;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.vault-tab {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-headline);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  color: rgba(255, 255, 255, 0.4);
+  transition: color var(--duration-normal) var(--ease-out-quart);
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+/* Line variant */
+.vault-tabs--line .vault-tab {
+  padding: 8px 14px;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+}
+
+.vault-tabs--line .vault-tab:hover {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.vault-tabs--line .vault-tab--active {
+  color: var(--primary-container);
+  border-bottom-color: var(--primary-container);
+}
+
+/* Pill variant */
+.vault-tabs--pill .vault-tab {
+  padding: 4px 10px;
+  transition: all var(--duration-normal) var(--ease-out-quart);
+}
+
+.vault-tabs--pill .vault-tab:hover {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.vault-tabs--pill .vault-tab--active {
+  color: var(--primary-container);
+  background: rgba(0, 255, 65, 0.1);
+  border: 1px solid rgba(0, 255, 65, 0.2);
+}
+
+/* Count badge */
+.vault-tab-count {
+  font-size: 8px;
+  padding: 1px 4px;
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.4);
+  min-width: 16px;
+  text-align: center;
+}
+
+.vault-tab-count--active {
+  background: rgba(0, 255, 65, 0.12);
+  color: var(--primary-container);
+}
+
+/* Tab panel */
+.vault-tab-panel {
+  animation: tab-fade-in 200ms var(--ease-out-expo);
+}
+
+@keyframes tab-fade-in {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}

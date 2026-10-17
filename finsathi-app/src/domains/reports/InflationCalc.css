@@ -1,0 +1,196 @@
+/* === Inflation Calculator === */
+.infl-calc {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+}
+
+.infl-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.infl-source {
+  padding: 4px 8px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: rgba(0, 0, 0, 0.2);
+}
+
+/* Hero Grid */
+.infl-hero-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+}
+
+@media (min-width: 768px) {
+  .infl-hero-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.infl-hero-card {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.infl-hero-label {
+  font-family: var(--font-headline);
+  font-size: 8px;
+  letter-spacing: 0.12em;
+  color: rgba(255, 255, 255, 0.35);
+}
+
+.infl-hero-value {
+  font-family: var(--font-data);
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  margin: 2px 0;
+}
+
+.infl-hero-sub {
+  font-family: var(--font-headline);
+  font-size: 8px;
+  color: rgba(255, 255, 255, 0.3);
+  letter-spacing: 0.04em;
+}
+
+/* Breakdown Table */
+.infl-breakdown {
+  display: flex;
+  flex-direction: column;
+}
+
+.infl-table-header {
+  display: grid;
+  grid-template-columns: 2fr 0.8fr 1.5fr 1fr;
+  gap: 8px;
+  padding: 6px 12px;
+  font-family: var(--font-headline);
+  font-size: 8px;
+  letter-spacing: 0.12em;
+  color: rgba(255, 255, 255, 0.25);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.infl-cat-row {
+  display: grid;
+  grid-template-columns: 2fr 0.8fr 1.5fr 1fr;
+  gap: 8px;
+  padding: 8px 12px;
+  align-items: center;
+}
+
+.infl-cat-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.infl-cat-rate,
+.infl-cat-weight,
+.infl-cat-contrib {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.infl-mini-bar {
+  width: 48px;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.08);
+  flex-shrink: 0;
+}
+
+.infl-mini-bar-fill {
+  height: 100%;
+  background: var(--primary-container);
+  opacity: 0.5;
+  transition: width var(--duration-slow) var(--ease-out-expo);
+}
+
+/* Projection */
+.infl-projection {
+  display: flex;
+  flex-direction: column;
+}
+
+.infl-proj-years {
+  display: flex;
+  gap: 4px;
+}
+
+.infl-year-btn {
+  padding: 3px 8px;
+  font-family: var(--font-headline);
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.35);
+  transition: all var(--duration-normal) var(--ease-out-quart);
+}
+
+.infl-year-btn.active {
+  border-color: var(--primary-container);
+  color: var(--primary-container);
+  background: rgba(0, 255, 65, 0.08);
+}
+
+.infl-proj-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 8px;
+  padding: 12px;
+}
+
+.infl-proj-card {
+  padding: 12px;
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.infl-proj-year {
+  font-family: var(--font-headline);
+  font-size: 8px;
+  letter-spacing: 0.12em;
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.infl-proj-value {
+  font-family: var(--font-data);
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.infl-proj-increase {
+  font-family: var(--font-headline);
+  font-size: 9px;
+  letter-spacing: 0.04em;
+}
+
+/* Suggestion */
+.infl-suggest-body {
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.infl-disclaimer {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 6px 0;
+}

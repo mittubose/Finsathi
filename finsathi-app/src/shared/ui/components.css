@@ -1,0 +1,484 @@
+/* ============================================
+   Vault_OS Component Library
+   ============================================ */
+
+/* === Button === */
+.vault-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 16px;
+  font-family: var(--font-headline);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all var(--duration-normal) var(--ease-out-quart);
+  white-space: nowrap;
+}
+
+.vault-btn:active {
+  transform: scale(0.97);
+}
+
+.vault-btn--primary {
+  background: var(--on-surface);
+  color: var(--surface);
+}
+
+.vault-btn--primary:hover {
+  background: var(--primary-container);
+  color: var(--on-primary-container);
+}
+
+.vault-btn--secondary {
+  background: transparent;
+  color: var(--on-surface);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.vault-btn--secondary:hover {
+  border-color: var(--primary-container);
+  color: var(--primary-container);
+  background: rgba(0, 255, 65, 0.06);
+}
+
+.vault-btn--ghost {
+  background: transparent;
+  color: rgba(255, 255, 255, 0.5);
+  padding: 6px 8px;
+}
+
+.vault-btn--ghost:hover {
+  color: var(--on-surface);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.vault-btn--danger {
+  background: transparent;
+  color: var(--error);
+  border-color: rgba(255, 180, 171, 0.2);
+}
+
+.vault-btn--danger:hover {
+  background: rgba(255, 180, 171, 0.08);
+  border-color: var(--error);
+}
+
+.vault-btn:disabled {
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+/* === Input === */
+.vault-field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.vault-input-wrap {
+  display: flex;
+  align-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(0, 0, 0, 0.3);
+  transition: border-color var(--duration-normal) var(--ease-out-quart);
+}
+
+.vault-input-wrap:focus-within {
+  border-color: var(--primary-container);
+}
+
+.vault-input-wrap--error {
+  border-color: var(--error) !important;
+}
+
+.vault-input-affix {
+  padding: 6px 8px;
+  font-family: var(--font-headline);
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.3);
+  flex-shrink: 0;
+}
+
+.vault-input-prefix {
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.vault-input-suffix {
+  border-left: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.vault-input {
+  flex: 1;
+  padding: 6px 8px;
+  font-family: var(--font-headline);
+  font-size: 12px;
+  letter-spacing: 0.03em;
+  width: 100%;
+  background: transparent;
+  color: var(--on-surface);
+  border: none;
+  outline: none;
+}
+
+.vault-input::placeholder {
+  color: rgba(255, 255, 255, 0.2);
+}
+
+.vault-input::-webkit-outer-spin-button,
+.vault-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+.vault-input[type='number'] {
+  -moz-appearance: textfield;
+}
+
+.vault-field-error {
+  font-family: var(--font-headline);
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  color: var(--error);
+}
+
+.vault-field-hint {
+  font-family: var(--font-headline);
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.3);
+}
+
+/* === Select === */
+.vault-select {
+  padding: 6px 8px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(0, 0, 0, 0.3);
+  font-family: var(--font-headline);
+  font-size: 12px;
+  letter-spacing: 0.03em;
+  color: var(--on-surface);
+  appearance: none;
+  cursor: pointer;
+  transition: border-color var(--duration-normal) var(--ease-out-quart);
+}
+
+.vault-select:focus {
+  border-color: var(--primary-container);
+  outline: none;
+}
+
+/* === Badge === */
+.vault-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 6px;
+  font-family: var(--font-headline);
+  font-size: 9px;
+  letter-spacing: 0.1em;
+}
+
+.vault-badge--positive {
+  color: var(--primary-container);
+  border: 1px solid rgba(0, 255, 65, 0.3);
+  background: rgba(0, 255, 65, 0.06);
+}
+
+.vault-badge--warning {
+  color: var(--secondary-container);
+  border: 1px solid rgba(255, 178, 17, 0.3);
+  background: rgba(255, 178, 17, 0.06);
+}
+
+.vault-badge--negative {
+  color: var(--error);
+  border: 1px solid rgba(255, 180, 171, 0.3);
+  background: rgba(255, 180, 171, 0.06);
+}
+
+.vault-badge--neutral {
+  color: rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+/* === StatusPip === */
+.vault-status-pip-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.vault-status-pip {
+  width: 6px;
+  height: 6px;
+  flex-shrink: 0;
+}
+
+.vault-status-pip--active { background: var(--primary-container); }
+.vault-status-pip--warning { background: var(--secondary-container); }
+.vault-status-pip--error { background: var(--error); }
+.vault-status-pip--idle { background: rgba(255, 255, 255, 0.2); }
+
+.vault-status-pip--pulse {
+  animation: pip-pulse 2s var(--ease-out-expo) infinite;
+}
+
+@keyframes pip-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+/* === SegmentedProgress === */
+.vault-seg-progress {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.vault-seg-progress-labels {
+  display: flex;
+  justify-content: space-between;
+}
+
+.vault-seg-progress-bar {
+  display: flex;
+  gap: 2px;
+  width: 100%;
+  height: 4px;
+}
+
+.vault-seg-progress-segment {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.1);
+  transition: background-color var(--duration-slow) var(--ease-out-expo);
+}
+
+.vault-seg-progress-segment.active {
+  background: var(--primary-container);
+  opacity: 0.8;
+}
+
+/* === Skeleton === */
+.vault-skeleton {
+  background: linear-gradient(90deg, rgba(255,255,255,0.04) 25%, rgba(255,255,255,0.08) 50%, rgba(255,255,255,0.04) 75%);
+  background-size: 200% 100%;
+  animation: skeleton-shimmer 1.5s ease infinite;
+}
+
+.vault-skeleton--text {
+  border-radius: 0;
+}
+
+.vault-skeleton--rect {
+  border-radius: 0;
+}
+
+.vault-skeleton--circle {
+  border-radius: 50%;
+}
+
+@keyframes skeleton-shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* === EmptyState === */
+.vault-empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 16px;
+  text-align: center;
+}
+
+/* === Divider === */
+.vault-divider {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.08);
+  margin: 4px 0;
+}
+
+/* === KeyValue === */
+.vault-kv {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-family: var(--font-headline);
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  padding: 3px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.vault-kv:last-child {
+  border-bottom: none;
+}
+
+/* === Checkbox === */
+.vault-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.vault-checkbox-input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.vault-checkbox-box {
+  width: 16px;
+  height: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--duration-fast);
+}
+
+.vault-checkbox:hover .vault-checkbox-box {
+  border-color: var(--primary-container);
+}
+
+.vault-checkbox-input:checked + .vault-checkbox-box {
+  background: rgba(0, 255, 65, 0.1);
+  border-color: var(--primary-container);
+}
+
+.vault-checkbox-box .material-symbols-outlined {
+  font-size: 14px !important;
+  color: var(--primary-container);
+}
+
+.vault-checkbox.disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* === Radio === */
+.vault-radio-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.vault-radio {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.vault-radio-input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.vault-radio-circle {
+  width: 16px;
+  height: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--duration-fast);
+}
+
+.vault-radio:hover .vault-radio-circle {
+  border-color: var(--primary-container);
+}
+
+.vault-radio-input:checked + .vault-radio-circle {
+  border-color: var(--primary-container);
+}
+
+.vault-radio-input:checked + .vault-radio-circle::after {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--primary-container);
+  box-shadow: 0 0 8px var(--primary-container);
+}
+
+.vault-radio.disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* === Toggle === */
+.vault-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.vault-toggle-wrap {
+  position: relative;
+  width: 32px;
+  height: 16px;
+}
+
+.vault-toggle-input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.vault-toggle-track {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all var(--duration-normal);
+}
+
+.vault-toggle-track.active {
+  background: rgba(0, 255, 65, 0.1);
+  border-color: var(--primary-container);
+}
+
+.vault-toggle-thumb {
+  position: absolute;
+  height: 10px;
+  width: 10px;
+  left: 2px;
+  bottom: 2px;
+  background: rgba(255, 255, 255, 0.4);
+  transition: all var(--duration-normal) var(--ease-out-expo);
+}
+
+.vault-toggle-track.active .vault-toggle-thumb {
+  transform: translateX(16px);
+  background: var(--primary-container);
+  box-shadow: 0 0 8px var(--primary-container);
+}
+
+.vault-toggle.disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}

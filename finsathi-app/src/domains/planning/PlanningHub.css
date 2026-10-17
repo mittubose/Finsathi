@@ -1,0 +1,279 @@
+/* ── PlanningHub ─────────────────────────────────────── */
+
+.planning-hub {
+  padding: 24px;
+}
+
+/* ── Tabs ───────────────────────────────────────────── */
+
+.planning-tabs {
+  display: flex;
+  gap: 0;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 8px;
+  overflow: hidden;
+  backdrop-filter: blur(12px);
+}
+
+.planning-tab {
+  background: transparent;
+  border: none;
+  padding: 12px 24px;
+  font-family: var(--font-headline);
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  color: rgba(255, 255, 255, 0.4);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-transform: uppercase;
+}
+
+.planning-tab.active {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.06);
+  border-bottom: 2px solid var(--primary-container);
+}
+
+.planning-tab:hover:not(.active) {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* ── Tab Content ────────────────────────────────────── */
+
+.planning-tab-content {
+  margin-top: 24px;
+  animation: fadeIn 0.3s ease;
+}
+
+/* ── Form Card ──────────────────────────────────────── */
+
+.planning-form-card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 24px;
+  backdrop-filter: blur(16px);
+}
+
+/* ── Form Grid ──────────────────────────────────────── */
+
+.planning-form-grid {
+  display: grid;
+  gap: 16px;
+}
+
+.planning-form-grid.cols-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.planning-form-grid.cols-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.planning-form-grid.cols-4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+/* ── Form Field ─────────────────────────────────────── */
+
+.planning-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.planning-field label {
+  font-family: var(--font-headline);
+  font-size: 10px;
+  letter-spacing: 1px;
+  color: rgba(255, 255, 255, 0.5);
+  text-transform: uppercase;
+}
+
+.planning-field input,
+.planning-field select {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  padding: 10px 12px;
+  color: #fff;
+  font-size: 13px;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.planning-field input:focus,
+.planning-field select:focus {
+  border-color: var(--primary-container);
+  box-shadow: 0 0 0 1px rgba(0, 255, 65, 0.15);
+}
+
+.planning-field select option {
+  background: #1a1a1a;
+  color: #fff;
+}
+
+/* ── Primary Button ─────────────────────────────────── */
+
+.planning-btn-primary {
+  background: var(--primary-container);
+  color: var(--on-primary-container, #000);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-family: var(--font-headline);
+  font-size: 11px;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-transform: uppercase;
+}
+
+.planning-btn-primary:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+/* ── Stat Card ──────────────────────────────────────── */
+
+.planning-stat-card {
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  padding: 20px;
+  transition: all 0.2s ease;
+}
+
+.planning-stat-card:hover {
+  border-color: rgba(255, 255, 255, 0.15);
+  transform: translateY(-2px);
+}
+
+.planning-stat-card .stat-label {
+  font-family: var(--font-headline);
+  font-size: 10px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.planning-stat-card .stat-value {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-top: 6px;
+}
+
+.planning-stat-card .stat-desc {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.35);
+  margin-top: 8px;
+  line-height: 1.4;
+}
+
+/* ── Item Card ──────────────────────────────────────── */
+
+.planning-item-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 8px;
+  border-left: 4px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.planning-item-card:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* ── Item List ──────────────────────────────────────── */
+
+.planning-item-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* ── Progress Bar ───────────────────────────────────── */
+
+.planning-progress-bar {
+  height: 6px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 3px;
+  overflow: hidden;
+  margin-top: 8px;
+}
+
+.planning-progress-fill {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 0.4s ease;
+}
+
+/* ── Empty State ────────────────────────────────────── */
+
+.planning-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 48px;
+  gap: 12px;
+  text-align: center;
+}
+
+/* ── Actions Row ────────────────────────────────────── */
+
+.planning-actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+/* ── Icon Button ────────────────────────────────────── */
+
+.planning-icon-btn {
+  background: none;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  padding: 6px;
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.5);
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+}
+
+.planning-icon-btn:hover {
+  border-color: var(--error);
+  color: var(--error);
+}
+
+/* ── Responsive ─────────────────────────────────────── */
+
+@media (max-width: 768px) {
+  .planning-form-grid.cols-3,
+  .planning-form-grid.cols-4 {
+    grid-template-columns: 1fr;
+  }
+
+  .planning-tabs {
+    flex-wrap: wrap;
+  }
+}
+
+/* ── Keyframes ──────────────────────────────────────── */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

@@ -1,0 +1,277 @@
+/* === Tax Engine Page === */
+
+.tax-engine {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+}
+
+.tax-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tax-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+@media (min-width: 1024px) {
+  .tax-layout {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+}
+
+.tax-input-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1;
+  min-width: 0;
+}
+
+@media (min-width: 1024px) {
+  .tax-input-panel {
+    max-width: 440px;
+  }
+}
+
+.tax-results-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1;
+  min-width: 0;
+}
+
+.tax-results-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+@media (min-width: 640px) {
+  .tax-results-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .tax-results-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 1280px) {
+  .tax-results-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Section */
+.tax-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.tax-fields {
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Field */
+.tax-field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.tax-input-wrap {
+  display: flex;
+  align-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(0, 0, 0, 0.3);
+  transition: border-color var(--duration-normal) var(--ease-out-quart);
+}
+
+.tax-input-wrap:focus-within {
+  border-color: var(--primary-container);
+}
+
+.tax-input-prefix {
+  padding: 6px 8px;
+  font-family: var(--font-headline);
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.4);
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.tax-input {
+  flex: 1;
+  padding: 6px 8px;
+  font-family: var(--font-headline);
+  font-size: 13px;
+  letter-spacing: 0.03em;
+  width: 100%;
+}
+
+.tax-input::placeholder {
+  color: rgba(255, 255, 255, 0.2);
+}
+
+/* Remove number input spinners */
+.tax-input::-webkit-outer-spin-button,
+.tax-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.tax-input[type='number'] {
+  -moz-appearance: textfield;
+}
+
+/* City Toggle */
+.tax-city-toggle {
+  display: flex;
+  gap: 0;
+}
+
+.tax-city-btn {
+  padding: 8px 16px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.02);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+}
+
+.tax-city-btn.active {
+  background: rgba(0, 255, 65, 0.05);
+  color: var(--primary-container);
+  border-color: var(--primary-container);
+  font-weight: 700;
+  box-shadow: 0 0 15px rgba(0, 255, 65, 0.1);
+}
+
+.tax-city-btn:hover:not(.active) {
+  border-color: rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* Result Card */
+.tax-result-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.tax-result-body {
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.tax-result-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-family: var(--font-headline);
+  font-size: 11px;
+  letter-spacing: 0.04em;
+}
+
+.tax-result-row--highlight {
+  background: rgba(255, 255, 255, 0.04);
+  margin: 0 -12px;
+  padding: 6px 12px;
+}
+
+.tax-result-row--total {
+  font-weight: 600;
+  font-size: 13px;
+  padding-top: 4px;
+}
+
+.tax-result-divider {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.08);
+  margin: 4px 0;
+}
+
+/* Assumptions */
+.tax-assumptions {
+  padding: 8px 12px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  background: rgba(0, 0, 0, 0.2);
+}
+
+/* Recommendation */
+.tax-recommendation {
+  padding: 16px;
+  text-align: center;
+}
+
+/* === Tax Suggestions === */
+.tax-suggestions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.tax-suggestions-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 4px 0;
+}
+
+.tax-suggestion-card {
+  display: flex;
+  flex-direction: column;
+  transition: border-color var(--duration-normal) var(--ease-out-quart);
+}
+
+.tax-suggestion-card--high {
+  border-color: rgba(0, 255, 65, 0.15);
+}
+
+.tax-suggestion-saving {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 6px;
+  padding-top: 6px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.tax-suggestion-progress {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 6px;
+}
+
+.tax-suggestion-progress-bar {
+  flex: 1;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+}
+
+.tax-suggestion-progress-fill {
+  height: 100%;
+  background: var(--primary-container);
+  opacity: 0.6;
+  transition: width var(--duration-slow) var(--ease-out-expo);
+}

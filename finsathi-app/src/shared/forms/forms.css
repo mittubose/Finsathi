@@ -1,0 +1,304 @@
+/* ============================================
+   FinSathi Form Components
+   ============================================ */
+
+.vault-field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 100%;
+}
+
+.vault-input-wrap {
+  display: flex;
+  align-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(0, 0, 0, 0.3);
+  transition: all var(--duration-normal) var(--ease-out-quart);
+}
+
+.vault-input-wrap:focus-within {
+  border-color: var(--primary-container);
+  background: rgba(0, 255, 65, 0.03);
+  box-shadow: 0 0 15px rgba(0, 255, 65, 0.05);
+}
+
+.vault-input-wrap--error {
+  border-color: var(--error) !important;
+  background: rgba(255, 180, 171, 0.03) !important;
+}
+
+.vault-input {
+  flex: 1;
+  padding: 8px 12px;
+  font-family: var(--font-headline);
+  font-size: 13px;
+  letter-spacing: 0.02em;
+  width: 100%;
+  background: transparent;
+  color: var(--on-surface);
+  border: none;
+  outline: none;
+}
+
+.vault-input::placeholder {
+  color: rgba(255, 255, 255, 0.15);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.vault-input-affix {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 10px;
+  height: 100%;
+  color: rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.02);
+  user-select: none;
+}
+
+.vault-input-prefix {
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.vault-input-suffix {
+  border-left: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.vault-input-suffix.btn-ghost {
+  cursor: pointer;
+  border: none;
+  border-left: 1px solid rgba(255, 255, 255, 0.08);
+  transition: all 0.2s ease;
+}
+
+.vault-input-suffix.btn-ghost:hover {
+  color: var(--primary-container);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.vault-field-error {
+  font-family: var(--font-headline);
+  font-size: 10px;
+  letter-spacing: 0.05em;
+  color: var(--error);
+  margin-top: 2px;
+  text-transform: uppercase;
+}
+
+.vault-field-hint {
+  font-family: var(--font-headline);
+  font-size: 10px;
+  letter-spacing: 0.05em;
+  color: rgba(255, 255, 255, 0.3);
+  margin-top: 2px;
+  text-transform: uppercase;
+}
+
+/* Number Input Specifics */
+.vault-input::-webkit-outer-spin-button,
+.vault-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.vault-input[type=number] {
+  -moz-appearance: textfield;
+}
+
+/* Select Component */
+.vault-select-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(0, 0, 0, 0.3);
+  transition: all var(--duration-normal) var(--ease-out-quart);
+}
+
+.vault-select-wrap:focus-within {
+  border-color: var(--primary-container);
+  background: rgba(0, 255, 65, 0.03);
+}
+
+.vault-select-native {
+  flex: 1;
+  padding: 8px 32px 8px 12px;
+  font-family: var(--font-headline);
+  font-size: 13px;
+  letter-spacing: 0.02em;
+  width: 100%;
+  background: transparent;
+  color: var(--on-surface);
+  border: none;
+  outline: none;
+  appearance: none;
+  cursor: pointer;
+}
+
+.vault-select-native option {
+  background: #121212;
+  color: var(--on-surface);
+  padding: 10px;
+}
+
+.vault-select-icon {
+  position: absolute;
+  right: 10px;
+  pointer-events: none;
+  color: rgba(255, 255, 255, 0.3);
+  font-size: 20px !important;
+}
+
+/* Checkbox Component */
+.vault-checkbox-field {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.vault-checkbox-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  user-select: none;
+  padding: 4px 0;
+}
+
+.vault-checkbox-wrap.disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.vault-checkbox-input-container {
+  position: relative;
+  width: 18px;
+  height: 18px;
+}
+
+.vault-checkbox-native {
+  position: absolute;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  cursor: inherit;
+  z-index: 2;
+}
+
+.vault-checkbox-box {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 18px;
+  height: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.vault-checkbox-wrap:hover .vault-checkbox-box {
+  border-color: var(--primary-container);
+}
+
+.vault-checkbox-native:checked + .vault-checkbox-box {
+  background: rgba(0, 255, 65, 0.1);
+  border-color: var(--primary-container);
+}
+
+.vault-checkbox-icon {
+  font-size: 14px !important;
+  color: var(--primary-container);
+}
+
+/* Radio Component */
+.vault-radio-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.vault-radio-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.vault-radio-wrap.disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.vault-radio-input-container {
+  position: relative;
+  width: 18px;
+  height: 18px;
+}
+
+.vault-radio-native {
+  position: absolute;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  cursor: inherit;
+  z-index: 2;
+}
+
+.vault-radio-circle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 18px;
+  height: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.vault-radio-wrap:hover .vault-radio-circle {
+  border-color: var(--primary-container);
+}
+
+.vault-radio-native:checked + .vault-radio-circle {
+  border-color: var(--primary-container);
+}
+
+.vault-radio-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--primary-container);
+  box-shadow: 0 0 8px var(--primary-container);
+}
+
+/* Date Picker */
+.vault-date-input {
+  color-scheme: dark;
+  cursor: pointer;
+}
+
+.vault-date-input::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+  filter: invert(1) brightness(0.7);
+  opacity: 0.5;
+  transition: opacity 0.2s ease;
+}
+
+.vault-date-input::-webkit-calendar-picker-indicator:hover {
+  opacity: 1;
+}
+
+
+

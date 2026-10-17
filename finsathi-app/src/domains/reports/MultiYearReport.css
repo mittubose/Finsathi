@@ -1,0 +1,157 @@
+/* === Multi-Year Reporting === */
+
+.multi-year {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+}
+
+.my-table {
+  display: flex;
+  flex-direction: column;
+}
+
+.my-table-grid {
+  display: flex;
+  flex-direction: column;
+}
+
+.my-table-header {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .my-table-header {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr 1fr 1fr 1fr 0.5fr;
+    gap: 12px;
+    padding: 8px 12px;
+    background: rgba(0, 0, 0, 0.4);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    font-family: var(--font-headline);
+    font-size: 9px;
+    letter-spacing: 0.1em;
+    color: rgba(255, 255, 255, 0.3);
+  }
+}
+
+.my-table-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 10px 12px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@media (min-width: 768px) {
+  .my-table-row {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr 1fr 1fr 1fr 0.5fr;
+    gap: 12px;
+    flex-wrap: nowrap;
+  }
+}
+
+/* Trends Grid */
+.my-trends-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 8px;
+}
+
+@media (min-width: 1024px) {
+  .my-trends-grid {
+    grid-template-columns: 1.5fr 1fr;
+  }
+}
+
+.my-trend-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.my-trend-chart {
+  height: 200px;
+  display: flex;
+  align-items: flex-end;
+  gap: 16px;
+  padding: 24px 12px 12px;
+  overflow-x: auto;
+}
+
+.my-trend-col {
+  flex: 1;
+  min-width: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.my-trend-bars {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+  gap: 2px;
+  position: relative;
+}
+
+.my-trend-bars::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: -4px;
+  right: -4px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.my-trend-bar {
+  flex: 1;
+  transition: all 0.6s var(--ease-out-expo);
+  min-height: 2px;
+}
+
+.my-trend-bar.income {
+  background: var(--primary-container);
+  opacity: 0.8;
+}
+
+.my-trend-bar.expense {
+  background: var(--on-surface);
+  opacity: 0.3;
+}
+
+.my-trend-bar:hover {
+  opacity: 1;
+  filter: brightness(1.2);
+}
+
+/* Velocity List */
+.my-velocity-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.my-velocity-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 12px;
+}
+
+.my-rate-track {
+  flex: 1;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.05);
+  position: relative;
+}
+
+.my-rate-fill {
+  height: 100%;
+  background: var(--primary-container);
+  transition: width 0.8s var(--ease-out-expo);
+}

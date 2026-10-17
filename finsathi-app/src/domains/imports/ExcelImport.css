@@ -1,0 +1,198 @@
+/* === Excel Import === */
+.excel-import {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.excel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.excel-dropzone {
+  min-height: 180px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  cursor: pointer;
+  border: 1px dashed rgba(255, 255, 255, 0.12);
+  transition: border-color var(--duration-normal) var(--ease-out-quart);
+}
+
+.excel-dropzone:hover {
+  border-color: var(--primary-container);
+}
+
+.excel-sheet-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.excel-sheet-info {
+  padding: 6px 12px;
+}
+
+.excel-reset-btn {
+  font-family: var(--font-headline);
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  color: rgba(255, 255, 255, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 3px 8px;
+  transition: all var(--duration-normal) var(--ease-out-quart);
+}
+
+.excel-reset-btn:hover {
+  color: var(--on-surface);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.excel-mapping {
+  display: flex;
+  flex-direction: column;
+}
+
+.excel-mapping-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 10px;
+  padding: 12px;
+}
+
+.excel-map-field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.excel-select {
+  padding: 6px 8px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(0, 0, 0, 0.3);
+  font-family: var(--font-headline);
+  font-size: 11px;
+  letter-spacing: 0.03em;
+  color: var(--on-surface);
+  appearance: none;
+  cursor: pointer;
+  transition: border-color var(--duration-normal) var(--ease-out-quart);
+}
+
+.excel-select:focus {
+  border-color: var(--primary-container);
+  outline: none;
+}
+
+.excel-type-toggle {
+  display: flex;
+}
+
+.excel-type-btn {
+  flex: 1;
+  padding: 6px 0;
+  font-family: var(--font-headline);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.35);
+  transition: all var(--duration-normal) var(--ease-out-quart);
+}
+
+.excel-type-btn:first-child {
+  border-right: none;
+}
+
+.excel-type-btn.active {
+  background: rgba(0, 255, 65, 0.1);
+  color: var(--primary-container);
+  border-color: rgba(0, 255, 65, 0.3);
+}
+
+.excel-preview-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  background: var(--on-surface);
+  color: var(--surface);
+  font-family: var(--font-headline);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  font-weight: 600;
+  transition: all var(--duration-normal) var(--ease-out-quart);
+}
+
+.excel-preview-btn:hover:not(:disabled) {
+  background: var(--primary-container);
+  color: var(--on-primary-container);
+}
+
+.excel-preview-btn:disabled {
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+.excel-preview {
+  display: flex;
+  flex-direction: column;
+}
+
+.excel-preview-table-header {
+  display: grid;
+  grid-template-columns: 0.8fr 0.8fr 1.5fr 0.8fr 0.8fr;
+  gap: 8px;
+  padding: 6px 12px;
+  font-family: var(--font-headline);
+  font-size: 8px;
+  letter-spacing: 0.12em;
+  color: rgba(255, 255, 255, 0.25);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.excel-preview-row {
+  display: grid;
+  grid-template-columns: 0.8fr 0.8fr 1.5fr 0.8fr 0.8fr;
+  gap: 8px;
+  padding: 6px 12px;
+  align-items: center;
+}
+
+.excel-preview-row--error {
+  background: rgba(255, 180, 171, 0.03);
+}
+
+.excel-import-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 20px;
+  background: var(--on-surface);
+  color: var(--surface);
+  font-family: var(--font-headline);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  font-weight: 600;
+}
+
+.excel-import-btn:hover:not(:disabled) {
+  background: var(--primary-container);
+  color: var(--on-primary-container);
+}
+
+.excel-import-btn:disabled {
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+.excel-done {
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  text-align: center;
+}

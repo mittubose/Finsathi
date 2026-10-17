@@ -1,0 +1,97 @@
+.report-insights {
+  margin-bottom: 24px;
+}
+
+.insights-scroller {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  padding: 8px 4px 16px;
+  scrollbar-width: none; /* Firefox */
+}
+
+.insights-scroller::-webkit-scrollbar {
+  display: none; /* Chrome/Safari */
+}
+
+.insight-card {
+  flex: 0 0 280px;
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  gap: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: border-color 0.3s var(--ease-out-expo);
+}
+
+.insight-card:hover {
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+.insight-icon-wrap {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.03);
+  flex-shrink: 0;
+}
+
+.insight-card.positive .insight-icon-wrap { color: var(--primary-container); }
+.insight-card.warning .insight-icon-wrap { color: var(--secondary-container); }
+.insight-card.info .insight-icon-wrap { color: #82ccff; }
+
+.insight-content {
+  flex: 1;
+}
+
+.insight-header {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 8px;
+}
+
+.insight-label {
+  font-size: 8px;
+  letter-spacing: 0.15em;
+}
+
+.insight-value {
+  font-size: 20px;
+  letter-spacing: 0.02em;
+}
+
+.insight-desc {
+  font-size: 11px;
+  line-height: 1.4;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.insight-glow {
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at center, rgba(255,255,255,0.03) 0%, transparent 70%);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.5s var(--ease-out-expo);
+}
+
+.insight-card:hover .insight-glow {
+  opacity: 1;
+}
+
+/* State specific glows */
+.insight-card.positive:hover .insight-glow {
+  background: radial-gradient(circle at center, rgba(0, 230, 57, 0.05) 0%, transparent 70%);
+}
+
+.insight-card.warning:hover .insight-glow {
+  background: radial-gradient(circle at center, rgba(255, 178, 17, 0.05) 0%, transparent 70%);
+}

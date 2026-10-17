@@ -1,0 +1,141 @@
+/* === Skeleton System === */
+
+@keyframes skeleton-shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+.skeleton-bone {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.04) 25%,
+    rgba(255, 255, 255, 0.09) 50%,
+    rgba(255, 255, 255, 0.04) 75%
+  );
+  background-size: 200% 100%;
+  animation: skeleton-shimmer 1.8s ease infinite;
+  border-radius: 1px;
+  flex-shrink: 0;
+}
+
+.skeleton-bone--bright {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.07) 25%,
+    rgba(255, 255, 255, 0.14) 50%,
+    rgba(255, 255, 255, 0.07) 75%
+  );
+  background-size: 200% 100%;
+  animation: skeleton-shimmer 1.8s ease infinite;
+}
+
+/* === Card Skeleton === */
+.skeleton-card {
+  display: flex;
+  flex-direction: column;
+  min-height: 160px;
+}
+
+.skeleton-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.skeleton-card-body {
+  padding: 12px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* === Row Skeleton === */
+.skeleton-row-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.skeleton-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  opacity: 0;
+  animation: skeleton-row-appear 0.3s ease forwards;
+}
+
+/* Stagger each row */
+.skeleton-row:nth-child(1) { animation-delay: 0ms; }
+.skeleton-row:nth-child(2) { animation-delay: 60ms; }
+.skeleton-row:nth-child(3) { animation-delay: 120ms; }
+.skeleton-row:nth-child(4) { animation-delay: 180ms; }
+.skeleton-row:nth-child(5) { animation-delay: 240ms; }
+.skeleton-row:nth-child(6) { animation-delay: 300ms; }
+.skeleton-row:nth-child(7) { animation-delay: 360ms; }
+.skeleton-row:nth-child(8) { animation-delay: 420ms; }
+
+@keyframes skeleton-row-appear {
+  to { opacity: 1; }
+}
+
+.skeleton-row-icon { flex-shrink: 0; }
+
+.skeleton-row-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.skeleton-row-amount {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+/* === Table Skeleton === */
+.skeleton-table {
+  width: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.skeleton-table-header {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  padding: 12px;
+  background: rgba(0, 0, 0, 0.4);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.skeleton-table-row {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  padding: 10px 12px;
+}
+
+/* === Form Skeleton === */
+.skeleton-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.skeleton-form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 8px;
+  padding: 12px;
+}
+
+.skeleton-form-field {
+  display: flex;
+  flex-direction: column;
+}
+
+/* === Hero Skeleton === */
+.skeleton-hero {
+  padding: 16px 24px;
+}
